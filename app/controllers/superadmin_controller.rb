@@ -3,5 +3,14 @@ class SuperadminController < ApplicationController
   def dashboard
   end
 
+  def profile
+  end
+  
+  def user
+  end
+  
+  def role
+  end
+  
 end
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lsssp</title>
+  <title>LSSSP</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -25,7 +25,17 @@
   </div>
   <div class='container'>
     <div class='column last span-24 menu'>
-        Menu
+        <%= link_to 'Home', admin_dashboard_path  %> |
+        <%= link_to 'Users', admin_user_path  %> |
+        <%= link_to 'Roles', admin_role_path  %> |
+        <%= link_to 'Payment', admin_payment_path %> |
+        <%= link_to 'Question Types', admin_question_type_path %> |
+        <%= link_to 'Modules', admin_subject_path %> |
+        <%= link_to 'Question Bank', admin_question_bank_path %> |
+        <%= link_to 'Examination', admin_examination_path %> |
+        <%= link_to 'Profile', admin_profile_path %> |
+        <%= link_to 'Logout',  login_path %>
+
         <hr />
     </div>
   </div>
