@@ -1,4 +1,6 @@
 Lsssp::Application.routes.draw do
+
+
   get "home/index"
   get "home/aboutus"
 #==========================================
@@ -34,14 +36,13 @@ Lsssp::Application.routes.draw do
   match 'superadmin/profile' => 'superadmin#profile', :as => :superadmin_profile
   match 'superadmin/role' =>'superadmin#role', :as => :superadmin_role  
   
-#-------------------------------------------------------------------------
-#Admin
+
 
   get "admin/dashboard"
   get "admin/profile"
   get "admin/examination"
   get "admin/user"
-  get "admin/question_type"
+  get "question_types/index"
   get "admin/subject"
   get "admin/payment"
 
@@ -50,14 +51,13 @@ Lsssp::Application.routes.draw do
   match 'admin' => 'admin#dashboard', :as => :admin
   match 'admin/profile' => 'admin#profile', :as => :admin_profile
   match 'admin/user' => 'admin#user', :as => :admin_user
-  match 'admin/question_type' => 'admin#question_type', :as => :admin_question_type
-  match 'admin/subject' => 'admin#subject', :as => :admin_subject
-  match 'admin/payment' => 'admin#payment', :as => :admin_payment
+  match 'question_types/index' => 'question_types#index', :as => :question_type
+  match 'subjects/index' => 'subjects#index', :as => :subject
+  match 'payments/index' => 'payments#index', :as => :payment
   match 'admin/role' => 'admin#role', :as => :admin_role
   match 'admin/question_bank' => 'admin#question_bank', :as => :admin_question_bank
   match 'admin/examination' => 'admin#examination', :as => :admin_examination
-#=========================================================================================
-#Student
+
   get "student/home"
   get "student/certifications"
   get "student/assessors"
@@ -68,8 +68,6 @@ Lsssp::Application.routes.draw do
   match 'student/certifications' => 'student#certifications', :as=> :student_certifications
   match 'student/assessors' => 'student#assessors', :as => :student_assessors
   match 'student/profile' => 'student#profile', :as => :student_profile
-#====================================================================================
-#Assessor
 
   get "tutor/home"
   match 'tutor' => 'tutor#home', :as => :tutor
@@ -79,20 +77,17 @@ Lsssp::Application.routes.draw do
   match 'assessor/projects' => 'tutor#projects', :as=> :assessor_projects
   match 'assessor/certification_queue' => 'tutor#certification_queue', :as=> :assessor_certification_queue
   match 'assessor/profile' => 'tutor#profile', :as=> :assessor_profile
-#===================================================================================
-#Service Provider
+
   get "provider/dashboard"
   get "provider/profile"
 
   match 'serviceprovider' => 'provider#dashboard', :as => :serviceprovider
 
   match 'serviceprovider/dashboard' => 'provider#dashboard', :as => :provider_dashboard_path
-#=================================================================================
+
    root :to => "home#index"
 
    match ':controller(/:action(/:id(.:format)))'
    
-  map.resource :user_session
-  map.root :controller => "user_sessions", :action => "new"
 end
 
