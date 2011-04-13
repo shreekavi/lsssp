@@ -25,38 +25,40 @@ Lsssp::Application.routes.draw do
 #Super Admin
 
   get "superadmin/dashboard"
-  get "superadmin/user"
+  get "superadmin/users"
   get "superadmin/profile"
-  get "superadmin/role"
+  get "superadmin/roles"
 
   match 'superadmin/dashboard' => 'superadmin#dashboard', :as => :superadmin_dashboard_path
 
   match 'superadmin' => 'superadmin#dashboard', :as => :superadmin
-  match 'superamdin/user' =>'superadmin#user', :as => :superadmin_user
+  match 'superamdin/user' =>'users#index', :as => :superadmin_user
   match 'superadmin/profile' => 'superadmin#profile', :as => :superadmin_profile
-  match 'superadmin/role' =>'superadmin#role', :as => :superadmin_role  
+  match 'superadmin/role' =>'roles#index', :as => :superadmin_role  
   
 
 
   get "admin/dashboard"
   get "admin/profile"
-  get "admin/examination"
-  get "admin/user"
-  get "question_types/index"
-  get "admin/subject"
-  get "admin/payment"
+  get "admin/examinations"
+  get "admin/users"
+  get "admin/question_types"
+  get "admin/subjects"
+  get "admin/payments"
+  get "admin/question_banks"
+  get "admin/roles"
 
   match 'admin/dashboard' => 'admin#dashboard', :as =>:admin_dashboard_path
   
   match 'admin' => 'admin#dashboard', :as => :admin
   match 'admin/profile' => 'admin#profile', :as => :admin_profile
-  match 'admin/user' => 'admin#user', :as => :admin_user
-  match 'question_types/index' => 'question_types#index', :as => :question_type
-  match 'subjects/index' => 'subjects#index', :as => :subject
-  match 'payments/index' => 'payments#index', :as => :payment
-  match 'admin/role' => 'admin#role', :as => :admin_role
-  match 'admin/question_bank' => 'admin#question_bank', :as => :admin_question_bank
-  match 'admin/examination' => 'admin#examination', :as => :admin_examination
+  match 'admin/user' => 'users#index', :as => :admin_user
+  match 'admin/question_type' => 'question_types#index', :as => :admin_question_type
+  match 'admin/subject' => 'subjects#index', :as => :admin_subject
+  match 'admin/payment' => 'payments#index', :as => :admin_payment
+  match 'admin/role' => 'roles#index', :as => :admin_role
+  match 'admin/question_bank' => 'question_banks#index', :as => :admin_question_bank
+  match 'admin/examination' => 'examinations#index', :as => :admin_examination
 
   get "student/home"
   get "student/certifications"
