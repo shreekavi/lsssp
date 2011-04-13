@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lsssp</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  <style>
+    body { background-color: #9eafb1;}
+    .container { width: 950px; margin: 0 auto; }
+    .column { float: left; margin-right: 10px; }
+    .span-12 { width: 470px; }
+    .last { margin-right: 0; }
+    .span-24 { width: 950px; margin: 0; }
+    .bodyContent{ min-height: 500px; }
+    .header{background-color: #1e4262; font-family: "Trebuchet"; color: white; padding-left: 10px;}
+    .menu { padding: 5px;}
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <div class='column last span-24 header'>
+      <h1>LSSSP - Assessor Home</h1>
+    </div>
+  </div>
+  <div class='container'>
+    <div class='column last span-24 menu'>
+        <%= link_to 'Home', assessor_home_path  %> |
+        <%= link_to 'Students', assessor_students_path %> |
+        <%= link_to 'Projects', assessor_projects_path  %> |
+        <%= link_to 'Certification Queue', assessor_certification_queue_path  %> |
+        <%= link_to 'Profile', assessor_profile_path  %> |
+        <%= link_to 'Logout', login_path  %>
+        <hr />
+    </div>
+  </div>
+  <div class='container bodyContent'>
+    <%= yield %>
+  </div>
+  <hr />
+  <div class='container'>
+    <div class='column last span-24'>
+        <%= link_to 'Home', root_path  %> |
+        <%= link_to 'About Us', aboutus_path  %> |
+        <%= link_to 'Mission', mission_path  %> |
+        <%= link_to 'Contact', contact_path %>
+    </div>
+  </div>
+</body>
+</html>
+
